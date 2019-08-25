@@ -24,6 +24,18 @@ class User extends Model {
     return this;
   }
 
+  associates(models) {
+    this.hasMany(models.Meetup, {
+      foreignKey: 'user_id',
+      as: 'meetups',
+    });
+
+    this.hasMany(models.Subscription, {
+      foreignKey: 'user_id',
+      as: 'subscriptions',
+    });
+  }
+
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);
   }
