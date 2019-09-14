@@ -1,5 +1,4 @@
 import { Router } from 'express';
-
 import multer from 'multer';
 import multerConfig from './config/multer';
 
@@ -15,7 +14,7 @@ import authMiddleware from './app/middlewares/auth';
 const routes = new Router();
 const upload = multer(multerConfig);
 
-routes.get('/', (req, res) => res.json({ success: 'Welcome!' }));
+routes.get('/', (req, res) => res.json({ success: 'Welcome to Meetapp!' }));
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
